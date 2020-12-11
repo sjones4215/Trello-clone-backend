@@ -5,7 +5,7 @@ class CardsController < ApplicationController
   def index
     @cards = Card.all
 
-    render json: @cards
+    render json: { cards: @cards }
   end
 
   # GET /cards/1
@@ -46,6 +46,6 @@ class CardsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def card_params
-      params.require(:card).permit(:title, :label, :list_id)
+      params.require(:card).permit(:title, :label, :description, :comment, :list_id)
     end
 end

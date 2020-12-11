@@ -10,7 +10,7 @@ class BoardsController < ApplicationController
 
   # GET /boards/1
   def show
-    render json: @board
+    render json: @board, :include => {:lists =>{include:[:cards]}}
   end
 
   # POST /boards
@@ -46,6 +46,6 @@ class BoardsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def board_params
-      params.require(:board).permit(:title, :image)
+      params.require(:board).permit(:title, :image, :user_id)
     end
 end
