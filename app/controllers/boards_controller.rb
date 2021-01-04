@@ -3,9 +3,9 @@ class BoardsController < ApplicationController
 
   # GET /boards
   def index
-    @boards = Board.all
+    @boards = Board.where( user_id: @current_user)
 
-    render json: @boards
+    render json: { boards: @boards }
   end
 
   # GET /boards/1
