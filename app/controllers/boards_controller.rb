@@ -16,6 +16,7 @@ class BoardsController < ApplicationController
   # POST /boards
   def create
     @board = Board.new(board_params)
+    @board.user_id = @current_user.id
 
     if @board.save
       render json: @board, status: :created
