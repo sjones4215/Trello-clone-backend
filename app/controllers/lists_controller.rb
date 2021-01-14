@@ -10,7 +10,7 @@ class ListsController < ApplicationController
 
   # GET /lists/1
   def show
-    render json: @list, include: ['cards']
+    render json: @list
   end                            
 
   # POST /lists
