@@ -10,7 +10,7 @@ class CardsController < ApplicationController
 
   # GET /cards/1
   def show
-    render json: @card,
+    render json: @card
   end
 
   # POST /cards
