@@ -27,6 +27,7 @@ class ListsController < ApplicationController
   # PATCH/PUT /lists/1
   def update
     if @list.update(list_params)
+      @list.cards.sort_by(&:order_number)   
       render json: @list
     else
       render json: @list.errors, status: :unprocessable_entity
