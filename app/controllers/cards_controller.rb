@@ -5,7 +5,7 @@ class CardsController < ApplicationController
   def index
     @cards = Card.all
 
-    render json: @cards.order(:order_number)
+    render json: @cards
   end
 
   # GET /cards/1
