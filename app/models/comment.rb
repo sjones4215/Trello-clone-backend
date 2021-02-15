@@ -1,3 +1,3 @@
 class Comment < ApplicationRecord
-  belongs_to :cards, dependent: :destroy
+  belongs_to :card
 end

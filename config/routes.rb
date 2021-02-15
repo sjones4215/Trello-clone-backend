@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
    namespace :users, defaults:{ format: :json } do
     post :login
     post :create
