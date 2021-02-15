@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_15_203854) do
+ActiveRecord::Schema.define(version: 2021_02_15_204332) do
 
   create_table "boards", force: :cascade do |t|
     t.string "title"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 2021_02_15_203854) do
     t.integer "order_number"
     t.string "comments", default: "{}"
     t.index ["list_id"], name: "index_cards_on_list_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "card_id", null: false
+    t.string "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["card_id"], name: "index_comments_on_card_id"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -55,5 +63,6 @@ ActiveRecord::Schema.define(version: 2021_02_15_203854) do
 
   add_foreign_key "boards", "users"
   add_foreign_key "cards", "lists"
+  add_foreign_key "comments", "cards"
   add_foreign_key "lists", "boards"
 end
