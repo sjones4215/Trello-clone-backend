@@ -29,4 +29,12 @@ Rails.application.routes.draw do
       patch :update
       delete :destroy
       end
+    
+    namespace :comments, default:{ format: :json } do
+      get :index
+      get :show
+      post :create
+      patch :update
+      delete :destroy
+      end
 end
